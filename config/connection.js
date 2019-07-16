@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 
-module.exports = function(mysql) {
+module.exports = function(connection) {
 var connection = mysql.createConnection({
     host: "localhost",
   
