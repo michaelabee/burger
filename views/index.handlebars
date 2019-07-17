@@ -1,10 +1,25 @@
 <img id="burger-pic" href="../public\img\burger.png">
+
 <h1>Eat the Burgers</h1>
-    <div>
-        <form id="add-burger">
-            <input type="text" name="burgerName"><br>
-            <input type="submit"><br>
+
+<div>
+    <ul>
+  {{#each burger}}
+    {{#unless devoured}}
+      {{!-- {{> cats/cat-block sleep=true}} --}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+
+</div>
+
+
+<div>
+    <form id="add-burger">
+        <input type="text" name="burgerName"><br>
+        <input type="submit"><br>
             Enter a burger you would like to eat.
-        </form>
-    </div>
+    </form>
+</div>
 

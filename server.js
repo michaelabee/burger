@@ -1,10 +1,10 @@
-var bodyParser = require('body-parser');
-var urlencode = bodyParser.urlencoded({ extended: true});
-
 var express = require('express');
-var handlebars = require('express-handlebars');
-
 var PORT = process.env.PORT || 8080;
+
+var bodyParser = require('body-parser');
+var exphbs = require('express-handlebars');
+
+var urlencode = bodyParser.urlencoded({ extended: true});
 
 var app = express();
 
@@ -13,20 +13,21 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 var routes = require("./controllers/burgers_controllers.js");
 
-// app.get('/', function (req, res) {
-//     res.render('index');
-// });
+app.use(routes);
 
-app.use('/', routes);
+var db = require("./models");
 
-module.exports = app;
+db.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
+      console.log("App listening on PORT " + PORT);
+    });
+  });
 
-// Start our server so that it can begin listening to client requests.
-app.listen(PORT, function() {
-  // Log (server-side) when our server has started
-  console.log("Server listening on: http://localhost:" + PORT);
-});
+
 
 

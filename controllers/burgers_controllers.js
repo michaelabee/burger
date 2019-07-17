@@ -2,17 +2,20 @@ var express = require('express');
 var burgerModel = require('../models/burger.js');
 
 var db = require("../models");
-
+console.log(db.Burger);
 var router = require('express').Router();
 
 // Routes
 // =============================================================
 
+router.get("/", function(req,res) {
+    res.render("index", {})
+})
   // GET route for getting all of the todos
   router.get("/api/burgers", function(req, res) {
     // Write code here to retrieve all of the burgers from the database and res.json them
     // back to the user
-    db.burgers.findAll().then(function(dbburgers) {
+    db.Burger.findAll().then(function(dbburgers) {
       res.json(dbburgers);
     })
   });
@@ -21,7 +24,7 @@ var router = require('express').Router();
   router.post("/api/burgers", function(req, res) {
     // Write code here to create a new burger and save it to the database
     // and then res.json back the burger to the user
-    db.burgers.create({
+    db.Burger.create({
       burger_name: req.body.burger_name,
       devoured: req.body.devoured,
     }).then(function(dbburgers) {
