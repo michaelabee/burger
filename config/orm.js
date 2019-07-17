@@ -2,7 +2,7 @@ var connection = require ('./connection.js');
 
 module.exports = function (ORM) { 
 
-selectAll = function () {
+selectAll = function (req, res) {
     connection.query("SELECT * FROM burgers", function(err, res) {
         if (err) throw err;
         console.log(res);
