@@ -1,0 +1,1 @@
+Make a front end javascript file with AJAX calls to the burger/api to generate the buttons/add click handlers, etc 

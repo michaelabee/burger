@@ -11,3 +11,9 @@ h1 {
     text-align: center;
 }
 
+#burger-pic {
+    max-width:100%;
+    height:auto;
+    z-index: 55;
+}
+

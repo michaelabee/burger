@@ -35,7 +35,7 @@ router.get("/", function(req,res) {
   // DELETE route for deleting burgers. We can get the id of the burger to be deleted from
   // req.params.id
   router.delete("/api/burgers/:id", function(req, res) {
-    db.burgers.destroy({
+    db.Burger.destroy({
       where: {
         id: req.params.id
       }
@@ -46,7 +46,7 @@ router.get("/", function(req,res) {
 
   // PUT route for updating burgers. We can get the updated burger data from req.body
   router.put("/api/burgers", function(req, res) {
-    db.burgers.update({
+    db.Burger.update({
       burger_name:req.body.burger_name,
       devoured: req.body.devoured
     }, {
