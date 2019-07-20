@@ -4,7 +4,7 @@
 <ul>
   {{#each burgers}}
     {{#unless devoured}}
-      {{!-- {{> cats/cat-block sleep=true}} --}}
+      {{> burgers/burger-block burger=this}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -12,13 +12,13 @@
 </div>
 
 <div>
-<img id="burger-pic" href="./img/burger.jpg">
+<img id="burger-pic" href="/img/burger.jpg">
 </div>
 
-<div>
+<div id= "add-burger">
     <form>
         <input id="burger-name" type="text" name="burgerName"><br>
-        <button id="add-burger" type="submit">Submit</button> <br>
+        <button id="burger-button" type="submit">Submit</button> <br>
             Enter a burger you would like to eat.
     </form>
 </div>

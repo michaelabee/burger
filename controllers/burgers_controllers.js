@@ -9,7 +9,9 @@ var router = require('express').Router();
 // =============================================================
 
 router.get("/", function(req,res) {
-    res.render("index", {})
+  db.Burger.findAll().then(function(dbburgers) {
+    res.render("index", {burgers: dbburgers})
+  })
 })
   // GET route for getting all of the todos
   router.get("/api/burgers", function(req, res) {

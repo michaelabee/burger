@@ -6,3 +6,4 @@ module.exports = function(sequelize, DataTypes) {
     return Burger;
   };
   
+  //set default of devoured to false 
