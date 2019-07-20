@@ -1,25 +1,39 @@
-<h1>Eat the Burgers</h1>
-
-<div>
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block burger=this}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
+<div class="row">
+  <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="burger-box">
+        <h1>Eat the Burgers</h1>
+      </div>
+    </div>
+  <div class="col-md-2"></div>
 </div>
 
-<div>
-<img id="burger-pic" href="/img/burger.jpg">
+<div class="row">
+  <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div id="list-box">
+        {{#each burgers}}
+        {{#unless devoured}}
+          {{> burgers/burger-block burger=this}}
+        {{/unless}}
+        {{/each}}
+        </div>
+    </div>
+  <div class="col-md-2"></div>
 </div>
 
-<div id= "add-burger">
-    <form>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class= "burger-box">
+      <img id="burger-pic" src="/img/burger.png">
+      <form>
         <input id="burger-name" type="text" name="burgerName"><br>
-        <button id="burger-button" type="submit">Submit</button> <br>
-            Enter a burger you would like to eat.
-    </form>
+        <button id="burger-button" type="submit" class="btn btn-light">Submit</button><br>
+        <p id="button-text">Add a burger you would like to eat.</p>
+      </form>
+      </div>
+    </div>
+  <div class="col-md-2"></div>
 </div>
 

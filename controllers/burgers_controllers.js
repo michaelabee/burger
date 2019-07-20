@@ -8,19 +8,12 @@ var router = require('express').Router();
 // Routes
 // =============================================================
 
+//GET route for finding all burgers
 router.get("/", function(req,res) {
   db.Burger.findAll().then(function(dbburgers) {
     res.render("index", {burgers: dbburgers})
   })
 })
-  // GET route for getting all of the todos
-  router.get("/api/burgers", function(req, res) {
-    // Write code here to retrieve all of the burgers from the database and res.json them
-    // back to the user
-    db.Burger.findAll().then(function(dbburgers) {
-      res.json(dbburgers);
-    })
-  });
 
   // POST route for saving a new burger. We can create a burger with the data in req.body
   router.post("/api/burgers", function(req, res) {
@@ -34,20 +27,20 @@ router.get("/", function(req,res) {
     })
   });
 
-  // DELETE route for deleting burgers. We can get the id of the burger to be deleted from
-  // req.params.id
-  router.delete("/api/burgers/:id", function(req, res) {
-    db.Burger.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbburgers) {
-      res.json(dbburgers);
-    })
-  });
+  // // DELETE route for deleting burgers. We can get the id of the burger to be deleted from
+  // // req.params.id
+  // router.delete("/api/burgers/:id", function(req, res) {
+  //   db.Burger.destroy({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then(function(dbburgers) {
+  //     res.json(dbburgers);
+  //   })
+  // });
 
   // PUT route for updating burgers. We can get the updated burger data from req.body
-  router.put("/api/burgers", function(req, res) {
+  router.put("/api/burgers/:id", function(req, res) {
     db.Burger.update({
       burger_name:req.body.burger_name,
       devoured: req.body.devoured
@@ -59,5 +52,6 @@ router.get("/", function(req,res) {
       res.json(dbburgers);
     })
   });
+
 
   module.exports = router;

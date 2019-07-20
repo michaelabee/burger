@@ -1,6 +1,5 @@
 $(function() {
-    $(".change-devoured").on("click", function(event) {
-      event.preventDefault(event);
+    $(".change-devoured").click(function(event) {
       var id = $(this).data("id");
       var newDevoured = $(this).data("newdevoured");
   
@@ -14,7 +13,7 @@ $(function() {
         data: newDevoured
       }).then(
         function() {
-          console.log("changed sleep to", newDevoured);
+          console.log("changed devoured to", newDevoured);
           // Reload the page to get the updated list
           location.reload();
         }
@@ -41,19 +40,3 @@ $(function() {
       );
     });
 });
-//     $(".delete-cat").on("click", function(event) {
-//       var id = $(this).data("id");
-  
-//       // Send the DELETE request.
-//       $.ajax("/api/cats/" + id, {
-//         type: "DELETE"
-//       }).then(
-//         function() {
-//           console.log("deleted cat", id);
-//           // Reload the page to get the updated list
-//           location.reload();
-//         }
-//       );
-//     });
-//   });
-  
