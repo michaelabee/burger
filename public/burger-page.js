@@ -1,16 +1,21 @@
+//This put request to change the devoured state of the burger isn't currently working. It gives a 500 error about the id not being defined. 
+//I'm unsure if the below code is to blame or if the put request in burger_controllers.js is causing the error. 
+
 $(function() {
-    $(".change-devoured").click(function(event) {
+    $("#change-devoured").click(function(event) {
+      console.log('clicked');
+  
       var id = $(this).data("id");
       var newDevoured = $(this).data("newdevoured");
   
-      var newDevoured = {
+      var newDevouredState = {
         devoured: newDevoured
       };
   
       // Send the PUT request.
-      $.ajax("/api/burgers/" + id, {
+      $.ajax("/api/burgers/:" + id, {
         type: "PUT",
-        data: newDevoured
+        data: newDevouredState
       }).then(
         function() {
           console.log("changed devoured to", newDevoured);
