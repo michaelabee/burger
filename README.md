@@ -6,6 +6,6 @@ Eat-the-Burger is a node.js virtual restaraunt application for ordering and eati
 
 Run npm install for installing this application.
 
-##Technologies 
+## Technologies 
 
 This app runs on Node, Sequelize, Handlebars, Javascript and Bootstrap
