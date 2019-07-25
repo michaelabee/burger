@@ -28,18 +28,18 @@ router.get("/", function(req,res) {
   });
 
   // PUT route for updating burgers. We can get the updated burger data from req.body
-  // router.put("/api/burgers/:id", function(req, res) {
-  //   db.Burger.update({
-  //     burger_name:req.body.burger_name,
-  //     devoured: req.body.devoured
-  //   }, {
-  //     where: {
-  //       id: req.body.id
-  //     }
-  //   }).then(function(dbburgers){
-  //     res.json(dbburgers);
-  //   })
-  // });
+  router.put("/api/burgers/:id", function(req, res) {
+    db.Burger.update({
+      burger_name:req.body.burger_name,
+      devoured: req.body.devoured
+    }, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbburgers){
+      res.json(dbburgers);
+    })
+  });
 
   router.put("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
